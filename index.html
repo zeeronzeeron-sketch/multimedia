@@ -10,7 +10,9 @@
 </head>
 <body>
     <nav class="navbar">
-        <div class="logo">MULTIMEDIA</div>
+        <div class="logo">
+            <img src="kelompok.png" style="width: 40px; height: auto; border-radius: 50%;" alt="">
+        </div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#pengantar">Pengantar</a></li>
@@ -45,8 +47,8 @@
     </section>
     
     <section id="elemen" class="section">
-        <h2 data-aos="fade-left" data-aos-duration="1200" data-aos-delay="1200">Elemen-Elemen Penting dalam Kreativitas Desain Multimedia</h2>
-        <div class="elements-grid" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="1300">
+        <h2>Elemen-Elemen Penting dalam Kreativitas Desain Multimedia</h2>
+        <div class="elements-grid">
             <a href="tipografi.html" class="element-link">
                 <div class="element" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="1400">
                     <h3>Tipografi yang Berani</h3>
@@ -76,8 +78,8 @@
     </section>
     
     <section id="langkah" class="section">
-        <h2 data-aos="fade-right" data-aos-duration="1200" data-aos-delay="1400">Langkah-Langkah Membangun Kreativitas dalam Desain Multimedia</h2>
-        <ol data-aos="fade-left" data-aos-duration="1200" data-aos-delay="1500">
+        <h2>Langkah-Langkah Membangun Kreativitas dalam Desain Multimedia</h2>
+        <ol>
             <li><strong>Selalu Terbuka Terhadap Inspirasi Baru:</strong> Inspirasi dapat datang dari berbagai sumber, seperti seni, alam, atau interaksi sosial. Membuka diri pada perspektif baru dapat memicu ide kreatif.</li>
             <li><strong>Eksplorasi Tren dan Teknik Desain Terkini:</strong> Tren desain berkembang pesat. Mengikuti tren ini memperkaya wawasan desainer dan mendorong mereka mencoba pendekatan baru.</li>
             <li><strong>Kolaborasi dengan Desainer Lain:</strong> Kolaborasi memungkinkan bertukar ide, belajar teknik baru, dan memberikan hasil yang lebih kaya.</li>
@@ -85,9 +87,9 @@
         </ol>
     </section>
     <section id="contoh" class="section">
-        <h2 data-aos="fade-right" data-aos-duration="1200" data-aos-delay="1600">Contoh Karya Desain Multimedia Kreatif</h2>
-        <div class="examples" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="1700"> 
-            <div class="example-item" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="1800"> 
+        <h2 data-aos="fade-right">Contoh Karya Desain Multimedia Kreatif</h2>
+        <div class="examples"> 
+            <div class="example-item"> 
                 <a href="website-interaktif.html">
                     <img src="example1.jpg" alt="Website Interaktif"> 
                 </a>
@@ -96,7 +98,7 @@
                     Website ini memanfaatkan animasi mikro yang responsif dan interaktif untuk meningkatkan pengalaman pengguna. Penggunaan transisi halus saat menggulir dan elemen interaktif yang aktif membuat website ini menarik dan informatif.
                 </p>
             </div>
-            <div class="example-item" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="1900">
+            <div class="example-item">
                 <a href="video-animasi-promosi.html">
                     <img src="example2.jpg" alt="Video Animasi Promosi Produk"> 
                 </a>
@@ -105,7 +107,7 @@
                     Video promosi ini menggunakan animasi yang dinamis dan visual yang menarik untuk memperkenalkan produk secara efektif. Setiap elemen digerakkan dengan teknik motion graphics untuk memperkuat pesan yang disampaikan dan memikat audiens.
                 </p> 
             </div>
-            <div class="example-item" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="2000">
+            <div class="example-item">
                 <a href="poster-acara.html">
                     <img src="example3.jpg" alt="Poster Acara">
                 </a>
@@ -128,6 +130,30 @@
     </footer>        
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+        
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
         AOS.init({
             offset: 100,
             duration: 1000,
