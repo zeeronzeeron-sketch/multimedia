@@ -14,6 +14,10 @@ body {
     background-size: cover;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .logo {
     font-size: 1.5rem;
     max-width: 100%;
@@ -27,7 +31,7 @@ body {
     padding: 0.5rem 1rem;
     background-color: #1e3a5f;
     color: white;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 1000;
     width: 100%;
@@ -40,11 +44,10 @@ body {
 }
 
 .nav-links {
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    list-style: none;
-    display: flex;
+    width: 80%;
+    right: 0%;
+    text-align: center;
+    border-radius: 5px;
 }
 
 .nav-links li {
@@ -81,8 +84,6 @@ body {
     
     .nav-links.active {
         display: flex;
-        opacity: 1;
-        transform: translateY(0);
     }
     
     .hamburger {
@@ -364,14 +365,65 @@ body {
     }
 }
 
-@keyframes slideIn {
-    from { opacity: 0; transform: translateX(10px); }
-    to { opacity: 1; transform: translateX(0); }
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes slideInText {
+    0% {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.hero h1, .hero p,
+#pengantar h2, #pengantar p,
+#penting h2, #penting ul li,
+#elemen h2,
+#langkah h2, #langkah ol li,
+#contoh h2,
+.profile-section h2,
+.content-page h2 {
+    animation: fadeInText 2s ease-in-out;
+}
+
+.element h3, .element p, .example-item p,
+.footer-links a,
+.profile-card h3, .profile-card p {
+    animation: slideInText 1.5s ease-in-out;
+}
+
+.element h3, .element p, .example-item p,
+.footer-links a,
+.profile-card h3, .profile-card p {
+    animation: slideInText 1.5s ease-in-out;
+}
+
+.hero h1 {
+    animation-delay: 0.5s;
+}
+
+.hero p {
+    animation-delay: 1s;
+}
+
+#pengantar h2, #penting h2, #elemen h2, #langkah h2, #contoh h2 {
+    animation-delay: 0.5s;
+}
+
+#pengantar p, #penting ul li, #langkah ol li, .element h3, .element p, .example-item p, .profile-card h3, .profile-card p {
+    animation-delay: 1s;
 }
 
 .profile-section {
@@ -419,6 +471,13 @@ body {
     color: #888;
 }
 
+@media (max-width: 768px) {
+    .hero, #pengantar, #penting, #elemen, #langkah, #contoh {
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+}
 footer {
     display: flex;
     flex-direction: column;
@@ -551,9 +610,4 @@ footer p {
     width: auto;
     height: auto;
     border-radius: 5px;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
 }
