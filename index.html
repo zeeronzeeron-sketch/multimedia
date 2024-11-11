@@ -91,30 +91,21 @@
         <div class="examples"> 
             <div class="example-item"> 
                 <a href="website-interaktif.html">
-                    <img src="example1.jpg" alt="Website Interaktif"> 
+                    <img src="awwwards.png" alt="Website Interaktif"> 
                 </a>
                 <p><strong>Website Interaktif dengan Animasi</strong></p>
-                <p class="description">
-                    Website ini memanfaatkan animasi mikro yang responsif dan interaktif untuk meningkatkan pengalaman pengguna. Penggunaan transisi halus saat menggulir dan elemen interaktif yang aktif membuat website ini menarik dan informatif.
-                </p>
             </div>
             <div class="example-item">
                 <a href="video-animasi-promosi.html">
                     <img src="example2.jpg" alt="Video Animasi Promosi Produk"> 
                 </a>
                 <p><strong>Video Animasi Promosi Produk</strong></p>
-                <p class="description">
-                    Video promosi ini menggunakan animasi yang dinamis dan visual yang menarik untuk memperkenalkan produk secara efektif. Setiap elemen digerakkan dengan teknik motion graphics untuk memperkuat pesan yang disampaikan dan memikat audiens.
-                </p> 
             </div>
             <div class="example-item">
                 <a href="poster-acara.html">
                     <img src="example3.jpg" alt="Poster Acara">
                 </a>
                 <p><strong>Poster Acara dengan Tipografi Kreatif</strong></p>
-                <p class="description">
-                    Poster ini menonjol dengan penggunaan tipografi yang berani dan warna-warna cerah untuk menarik perhatian. Desainnya menggabungkan teks dan ilustrasi untuk memberikan kesan energik dan menggugah semangat acara yang dipromosikan.
-                </p>
             </div>
         </div>    
     </section>        
@@ -146,14 +137,14 @@
             });
         });
 
-        document.querySelectorAll('.nav-links a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+        window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
         AOS.init({
             offset: 100,
             duration: 1000,

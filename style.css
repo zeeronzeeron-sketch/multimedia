@@ -219,23 +219,22 @@ html {
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    animation: slideIn 5ms ease-in-out;
+    animation: slideInFromLeft 0.5s ease-in-out forwards;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    transition: all 0.3s ease;
+    opacity: 0;
 }
 
 .element-link {
     text-decoration: none;
     color: inherit;
     display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .element:hover {
-    transform: scale(1.1);
-    transition: transform 0.4s ease;
-    box-shadow: 0px 4px 10px rgba(0, 155, 170, 0.623);
-    opacity: 0.9;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .element h3 {
@@ -249,6 +248,22 @@ html {
     color: #555;
 }
 
+@media (max-width: 768px) {
+    .element {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    #contoh h2 {
+        font-size: 1.8em;
+    }
+
+    .el {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
 @keyframes slideIn {
     0% {
         opacity: 0;
@@ -259,6 +274,10 @@ html {
         transform: translateY(0);
     }
 }
+
+.element:nth-child(1), .example-item:nth-child(1) { animation-delay: 0.1s; }
+.element:nth-child(2), .example-item:nth-child(2) { animation-delay: 0.2s; }
+.element:nth-child(3), .example-item:nth-child(3) { animation-delay: 0.3s; }
 
 #langkah {
     padding: 2rem;
@@ -308,6 +327,7 @@ html {
     gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
+    width: 60%;
 }
 
 .example-item {
@@ -347,6 +367,29 @@ html {
     color: #666;
 }
 
+@media (min-width: 768px) {
+    .example-item {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .example-item {
+        grid-template-columns: 1fr 1fr; 
+        width: auto;
+        max-width: 1440px; 
+        margin: 0 auto;
+    }
+
+    .example-item {
+        padding: 20px;
+        width: 100%;
+        height: calc(auto / 7);
+        box-sizing: border-box;
+        text-align: center;
+    }
+}
+
 @media (max-width: 768px) {
     .examples {
         grid-template-columns: 1fr;
@@ -355,6 +398,11 @@ html {
 
     #contoh h2 {
         font-size: 1.8em;
+    }
+
+    .el {
+        width: 90%;
+        margin: 0 auto;
     }
 
     .example-item {
